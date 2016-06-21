@@ -1,0 +1,74 @@
+﻿@model CRM_Application.Models.CustomerNote
+
+@{
+    ViewBag.Title = "Add Customer Note";
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+<h4>@ViewBag.CompanyName</h4>
+<h4>@ViewBag.CustomerName</h4>
+<h4>@ViewBag.Address</h4>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.CustomerID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.DateAdded, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateAdded, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateAdded, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreatedByUser, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreatedByUser, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreatedByUser, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary btn-sm" /> 
+                @Html.ActionLink("Cancel", "Index", "CustomerNotes", new { customerID = ViewBag.CustomerID }, new { @class = "btn btn-primary btn-sm" })
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index", "Customers", new { @class = "btn btn-primary btn-sm" })
+</div>*@
+@*<div>
+    <p>Cust Id = @Model.CustomerID</p><br />
+    <p>Cust Note Id = @Model.CustomerNoteID</p><br />
+    @Html.ActionLink("Back to Notes", "Index", "CustomerNotes", new { customerID = Model.CustomerID}, new { @class = "btn btn-primary btn-sm" })
+</div>*@
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

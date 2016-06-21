@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureCloudService1" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="CRM Application">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=crmtestmtp;AccountKey=XV9FALrNT7i1EdQVMYeKi/I2Wr7xJ13kyXZT4gOGhR9qi2Yfu+PcngsLHtuOFWIjdbfVdAAlDL+jl8MlH9XCHw==" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="a1c047ad-ddec-4d1c-aa38-c99fbce0d9be" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

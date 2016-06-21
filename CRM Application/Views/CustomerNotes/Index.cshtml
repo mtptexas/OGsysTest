@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CRM_Application.Models.CustomerNote>
+
+@{
+    ViewBag.Title = "Customer Notes";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h4>@ViewBag.CompanyName</h4>
+<h4>@ViewBag.CustomerName</h4>
+<h4>@ViewBag.Address</h4>
+
+                <p>
+                    @Html.ActionLink("Create New", "Create", "CustomerNotes", new { customerID = ViewBag.CustomerID }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Customer List", "Index", "Customers", null, new { @class = "btn btn-primary btn-sm" })
+
+                </p>
+                <table class="table">
+                    <tr>
+                        <th></th>
+                        @*<th>
+                    @Html.DisplayNameFor(model => model.CustomerID)
+                </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.Body)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DateAdded)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedByUser)
+                        </th>
+
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.CustomerNoteID }, new { @class = "btn btn-primary btn-sm" })
+                                @Html.ActionLink("Details", "Details", new { id = item.CustomerNoteID }, new { @class = "btn btn-primary btn-sm" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.CustomerNoteID }, new { @class = "btn btn-primary btn-sm" })
+                            </td>
+                            @*<td>
+                        @Html.DisplayFor(modelItem => item.CustomerID)
+                    </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Body)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateAdded)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedByUser)
+                            </td>
+
+                        </tr>
+                    }
+
+                </table>
